@@ -29,8 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         $post = new Post();
-        return view('admin.posts.create', compact('post'));
+        return view('admin.posts.create', compact('post', 'categories'));
     }
 
     /**

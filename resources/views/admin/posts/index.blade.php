@@ -37,8 +37,13 @@
                               <th scope="row">{{ $post->id }}</th>
                               <td>{{ $post->title }}</td>
                               <td class="text-capitalize">
-                                 <span style="background-color:{{ $post->category->color }}; color: #fff"
-                                    class="badge badge-pill">{{ $post->category->name }}</span>
+                                 @if ($post->category_id)
+                                    <span style="background-color:{{ $post->category->color }}; color: #fff"
+                                       class="badge badge-pill">{{ $post->category->name }}
+                                    </span>
+                                 @else
+                                    <span>- - -</span>
+                                 @endif
                               </td>
                               <td>{{ $post->slug }}</td>
                               <td>{{ $post->updated_at }}</td>

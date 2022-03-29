@@ -16,7 +16,7 @@
 <div class="form-group col-md-2">
    <label for="category">Category</label>
    <select name="category_id" id="category">
-      <option value="null">Select a category</option>
+      <option value="">Select a category</option>
       @foreach ($categories as $category)
          <option @if (old('category_id', $post->category_id) == $category->id) selected @endif value="{{ $category->id }}">
             {{ $category->name }}
