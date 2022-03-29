@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 
 use Faker\Generator as Faker;
 
+use App\User;
 use App\Models\Post;
 use App\Models\Category;
 
@@ -21,6 +22,8 @@ class PostSeeder extends Seeder
 
         // Recupero gli id delle categories
         $category_ids = Category::pluck('id')->toArray();
+        // Recupero gli id degli utenti
+        $user_ids = User::pluck('id')->toArray();
 
         for ($i = 0; $i < 25; $i++) {
             $post = new Post();
@@ -30,6 +33,8 @@ class PostSeeder extends Seeder
             $post->slug = Str::slug($post->title, '-');
             // ID CATEGORIES
             $post->category_id = Arr::random($category_ids);
+            // ID USERS
+            $post->user_id = Arr::random($user_ids);
             $post->save();
         }
     }
