@@ -20,7 +20,7 @@
                   @endif
 
                   {{-- POSTS TABLE --}}
-                  <table class="table">
+                  <table class="table table-dark">
                      <thead>
                         <tr>
                            <th scope="col">ID</th>
