@@ -83,6 +83,31 @@
                {{ $posts->links() }}
             @endif
          </div>
+         <br>
+         <div class="col-md-12">
+            <div class="row">
+               <div class="col-12">
+                  <h1 class="text-center my-3">Divided by category</h1>
+               </div>
+               @foreach ($categories as $c_list)
+                  <div class="col-3">
+                     <h4>
+                        <span class="text-uppercase">{{ $c_list->name }}</span>
+                        <sup class="badge badge-info badge-pill">{{ count($c_list->post) }} posts</sup>
+                     </h4>
+                     <ul class="list-group list-group-flush mt-2 mb-5">
+                        @foreach ($c_list->post as $single_post)
+                           <li class="list-group-item">
+                              <a href="{{ route('admin.posts.show', $single_post->id) }}">
+                                 {{ $single_post->title }}
+                              </a>
+                           </li>
+                        @endforeach
+                     </ul>
+                  </div>
+               @endforeach
+            </div>
+         </div>
       </div>
    </div>
 @endsection
