@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,7 @@ class Post extends Model
         'title',
         'content',
         'img',
-        'slug'
+        'slug',
+        'category_id'
     ];
 }

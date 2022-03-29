@@ -5,7 +5,8 @@ use Illuminate\Support\Str;
 
 use Faker\Generator as Faker;
 
-use App\Model\Post;
+use App\Models\Post;
+use App\Models\Category;
 
 class PostSeeder extends Seeder
 {
