@@ -10,4 +10,9 @@ class Category extends Model
         'name',
         'color'
     ];
+
+    public function post()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 }
