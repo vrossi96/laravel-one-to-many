@@ -47,26 +47,29 @@
                               </td>
                               <td>{{ $post->slug }}</td>
                               <td>{{ $post->updated_at }}</td>
-                              <td class="d-flex align-items-center justify-content-between">
-                                 <div>
-                                    {{-- DETAILS --}}
-                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.show', $post->id) }}">
-                                       <i class="fa-solid fa-circle-info"></i>
-                                    </a>
-                                    {{-- EDIT --}}
-                                    <a class="btn btn-secondary btn-sm"
-                                       href="{{ route('admin.posts.edit', $post->id) }}">
-                                       <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
+                              <td>
+                                 <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                       {{-- DETAILS --}}
+                                       <a class="btn btn-primary btn-sm m-1"
+                                          href="{{ route('admin.posts.show', $post->id) }}">
+                                          <i class="fa-solid fa-circle-info"></i>
+                                       </a>
+                                       {{-- EDIT --}}
+                                       <a class="btn btn-secondary btn-sm m-1"
+                                          href="{{ route('admin.posts.edit', $post->id) }}">
+                                          <i class="fa-solid fa-pen-to-square"></i>
+                                       </a>
+                                    </div>
+                                    {{-- DELETE POST --}}
+                                    <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                       @method('DELETE')
+                                       @csrf
+                                       <button class="btn btn-danger btn-sm ml-3" type="submit">
+                                          <i class="fa-solid fa-trash-can"></i>
+                                       </button>
+                                    </form>
                                  </div>
-                                 {{-- DELETE POST --}}
-                                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-danger btn-sm" type="submit">
-                                       <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                 </form>
                               </td>
                            </tr>
                         @endforeach
