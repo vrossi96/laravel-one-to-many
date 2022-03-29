@@ -25,6 +25,7 @@
                         <tr>
                            <th scope="col">ID</th>
                            <th scope="col">Title</th>
+                           <th scope="col">Category</th>
                            <th scope="col">Slug</th>
                            <th scope="col">Updated at</th>
                            <th scope="col"></th>
@@ -35,6 +36,10 @@
                            <tr>
                               <th scope="row">{{ $post->id }}</th>
                               <td>{{ $post->title }}</td>
+                              <td class="text-capitalize">
+                                 <span style="background-color:{{ $post->category->color }}; color: #fff"
+                                    class="badge badge-pill">{{ $post->category->name }}</span>
+                              </td>
                               <td>{{ $post->slug }}</td>
                               <td>{{ $post->updated_at }}</td>
                               <td class="d-flex align-items-center justify-content-between">
