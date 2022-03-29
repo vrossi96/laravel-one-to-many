@@ -8,6 +8,7 @@ use App\Models\Category;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -44,13 +45,15 @@ class PostController extends Controller
     {
         $data = $request->all();
         $post = new Post();
+        $u_id = Auth::id();
 
         $post->fill($data);
         $post->slug = Str::slug($request->title, '-');
+        $post->user_id = $u_id;
 
         $post->save();
 
-        return redirect()->route('admin.posts.show', compact('post'));
+        return redirect()->route('admin.posts.show', $post);
     }
 
     /**
@@ -88,7 +91,7 @@ class PostController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($request->title, '-');
         $post->update($data);
-        return redirect()->route('admin.posts.show', compact('post'));
+        return redirect()->route('admin.posts.show', $post);
     }
 
     /**

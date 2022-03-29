@@ -6,6 +6,7 @@
          <div class="col-md-8">
             <div class="card">
                <div class="card-header">Manage post</div>
+               {{-- IMAGE --}}
                @if ($post->img)
                   <img class="card-img-top" src="{{ $post->img }}" alt="Post Img">
                @endif
@@ -15,7 +16,9 @@
                      <sup class="badge badge-pill badge-info"> ID: {{ $post->id }}</sup>
                   </h3>
                   <h4>{{ $post->slug }}</h4>
+                  <h5>Author: {{ $post->user->name }}</h5>
                   <p class="card-text">{{ $post->content }}</p>
+                  {{-- DATES --}}
                   <ul class="list-group list-group-flush">
                      <li class="list-group-item">Creation: {{ $post->created_at }}</li>
                      <li class="list-group-item">Last update: {{ $post->updated_at }}</li>

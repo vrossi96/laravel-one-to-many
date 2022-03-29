@@ -24,6 +24,7 @@
                      <thead>
                         <tr>
                            <th scope="col">ID</th>
+                           <th scope="col">Author</th>
                            <th scope="col">Title</th>
                            <th scope="col">Category</th>
                            <th scope="col">Slug</th>
@@ -35,6 +36,7 @@
                         @foreach ($posts as $post)
                            <tr>
                               <th scope="row">{{ $post->id }}</th>
+                              <td class="text-capitalize">{{ $post->user->name }}</td>
                               <td>{{ $post->title }}</td>
                               <td class="text-capitalize">
                                  @if ($post->category_id)
